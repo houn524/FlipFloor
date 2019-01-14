@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void OpenDoor() {
-        tileMap.GetComponent<TileFlipper>().DeleteTile(new Vector3Int(doorTilePoint.x, doorTilePoint.y, -1));
+        tileMap.GetComponent<TileFlipper>().DeleteTile(new Vector3Int(doorTilePoint.x, doorTilePoint.y, 2));
 
         isDoorOpen = true;
     }
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
             mapData[coord.x + (TILE_WIDTH / 2), coord.y + (TILE_WIDTH / 2)].flipped = false;
             flippedNormalTileCount--;
             if(isDoorOpen) {
-                tileMap.GetComponent<TileFlipper>().SetDoorTile(new Vector3Int(doorTilePoint.x, doorTilePoint.y, -1));
+                tileMap.GetComponent<TileFlipper>().SetDoorTile(new Vector3Int(doorTilePoint.x, doorTilePoint.y, 2));
                 isDoorOpen = false;
             }
         } else {

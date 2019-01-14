@@ -36,12 +36,14 @@ public class Character : MonoBehaviour
             currentCoord = grid.WorldToCell(transform.position);
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int coord = grid.WorldToCell(pos);
+            coord.x -= 5;
+            coord.y -= 5;
 
             if (currentCoord.Equals(coord) && !isMoving)
                 return;
 
             MyTile tile = tileMap.GetTile<MyTile>(new Vector3Int(coord.x, coord.y, 0));
-            
+            Debug.Log(tile + " : " + coord.x + ", " + coord.y);
             if ((GameManager.instance.isDoorOpen && tile) ||
                 (tile && (GameManager.instance.mapData[coord.x + (GameManager.TILE_WIDTH / 2), coord.y + (GameManager.TILE_WIDTH / 2)].type != TILE_TYPE.END))) {
                 Debug.Log("Find");
