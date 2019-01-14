@@ -10,9 +10,8 @@ using UnityEditor;
 
 public class MyTile : Tile
 {
-    
-
     public Sprite[] animatedSprite;
+    public MyTile otherTile;
 
     public override void RefreshTile(Vector3Int position, ITilemap tilemap) {
         base.RefreshTile(position, tilemap);
@@ -28,10 +27,7 @@ public class MyTile : Tile
         tileAnimationData.animationSpeed = 1.0f;
         tileAnimationData.animationStartTime = 0f;
 
-        if (sprite == animatedSprite[1])
-            return false;
-        else
-            return true;
+        return false;
     }
 
 #if UNITY_EDITOR

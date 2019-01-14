@@ -42,7 +42,7 @@ public class PathFinder : MonoBehaviour
     private void SetTile() {
         Debug.Log(startPoint.x + ", " + startPoint.y);
         Debug.Log(GameManager.instance.mapData);
-        AStarTile init = GameManager.instance.mapData[startPoint.x + 5, startPoint.y + 5];
+        AStarTile init = GameManager.instance.mapData[startPoint.x + (GameManager.TILE_WIDTH / 2), startPoint.y + (GameManager.TILE_WIDTH / 2)];
         init.g = 0;
         init.h = Mathf.Abs(endPoint.x - startPoint.x) + Mathf.Abs(endPoint.y - startPoint.y);
         init.f = init.g + init.h;
@@ -70,10 +70,10 @@ public class PathFinder : MonoBehaviour
         for(int i = 0; i < _directions.Length; i++) {
             Point point = new Point(centerTile.index.x + _directions[i].point.x, centerTile.index.y + _directions[i].point.y);
 
-            if (point.x < -5 || point.x >= 4 || point.y < -5 || point.y >= 4 || GameManager.instance.mapData[point.x + 5, point.y + 5].type.Equals(TILE_TYPE.WALL))
+            if (point.x < -(GameManager.TILE_WIDTH / 2) || point.x >= (GameManager.TILE_WIDTH / 2) - 1 || point.y < -(GameManager.TILE_WIDTH / 2) || point.y >= (GameManager.TILE_WIDTH / 2) - 1 || GameManager.instance.mapData[point.x + 5, point.y + 5].type.Equals(TILE_TYPE.WALL))
                 continue;
 
-            AStarTile tile = GameManager.instance.mapData[point.x + 5, point.y + 5];
+            AStarTile tile = GameManager.instance.mapData[point.x + (GameManager.TILE_WIDTH / 2), point.y + (GameManager.TILE_WIDTH / 2)];
 
             if (_closeList.Contains(tile))
                 continue;
@@ -93,13 +93,13 @@ public class PathFinder : MonoBehaviour
     }
 
     private void FindResultPath() {
-        AStarTile tile = GameManager.instance.mapData[endPoint.x + 5, endPoint.y + 5];
+        AStarTile tile = GameManager.instance.mapData[endPoint.x + (GameManager.TILE_WIDTH / 2), endPoint.y + (GameManager.TILE_WIDTH / 2)];
         while(tile != null) {
             _path.Add(tile);
 
             Debug.Log(tile.index.x + ", " + tile.index.y);
 
-            if (tile.nextTile.Equals(GameManager.instance.mapData[startPoint.x + 5, startPoint.y + 5]))
+            if (tile.nextTile.Equals(GameManager.instance.mapData[startPoint.x + (GameManager.TILE_WIDTH / 2), startPoint.y + (GameManager.TILE_WIDTH / 2)]))
                 break;
 
             tile = tile.nextTile;

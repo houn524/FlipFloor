@@ -53,12 +53,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Character.cs" />
+     <Compile Include="Assets\ResolutionManager.cs" />
      <Compile Include="Assets\Scripts\AStarTile.cs" />
+     <Compile Include="Assets\Scripts\Character.cs" />
+     <Compile Include="Assets\Scripts\EndTile.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\MyTile.cs" />
      <Compile Include="Assets\Scripts\PathFinder.cs" />
-     <Compile Include="Assets\TileSelector.cs" />
+     <Compile Include="Assets\Scripts\TileFlipper.cs" />
+     <Compile Include="Assets\Scripts\TileSelector.cs" />
      <None Include="Assets\2D_Pixel_Art_Isometric_Blocks_Devils_Garage_v04\readme.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/UnityProjects/FlipFloor/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>

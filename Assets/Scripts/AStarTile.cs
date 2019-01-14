@@ -4,6 +4,7 @@ using UnityEngine;
 
 public enum TILE_TYPE {
     GROUND,
+    END,
     WALL
 }
 
@@ -27,5 +28,7 @@ public class AStarTile
     public float g;
     public float h;
     public AStarTile nextTile;
+
+    public bool flipped = false;
 
 }

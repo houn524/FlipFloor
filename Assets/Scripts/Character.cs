@@ -33,12 +33,17 @@ public class Character : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-            
+            currentCoord = grid.WorldToCell(transform.position);
             Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector3Int coord = grid.WorldToCell(pos);
+
+            if (currentCoord.Equals(coord) && !isMoving)
+                return;
+
             MyTile tile = tileMap.GetTile<MyTile>(new Vector3Int(coord.x, coord.y, 0));
-            currentCoord = grid.WorldToCell(transform.position);
-            if (tile) {
+            
+            if ((GameManager.instance.isDoorOpen && tile) ||
+                (tile && (GameManager.instance.mapData[coord.x + (GameManager.TILE_WIDTH / 2), coord.y + (GameManager.TILE_WIDTH / 2)].type != TILE_TYPE.END))) {
                 Debug.Log("Find");
                 Debug.Log("currentCoord : " + currentCoord.x + ", " + currentCoord.y);
                 Debug.Log("targetCoord : " + coord.x + ", " + coord.y);
@@ -81,6 +86,14 @@ public class Character : MonoBehaviour
             targetPosition.y += (grid.cellSize.y / 2);
 
             if (targetPosition.Equals(transform.position)) {
+
+                if(GameManager.instance.mapData[currentTargetTile.index.x + (GameManager.TILE_WIDTH / 2), currentTargetTile.index.y + (GameManager.TILE_WIDTH / 2)].type == TILE_TYPE.END) {
+                    GameManager.instance.NextLevel();
+                    break;
+                }
+
+                GameManager.instance.FlipTile(new Vector3Int(currentTargetTile.index.x, currentTargetTile.index.y, 0));
+
                 isStepMoving = false;
 
                 if(isHold) {
@@ -99,9 +112,16 @@ public class Character : MonoBehaviour
             }
 
             timer += Time.deltaTime;
+            if(GameManager.instance.isDoorOpen == false &&
+                currentTargetTile.index.Equals(GameManager.instance.doorTilePoint)) {
+                break;
+            } 
             transform.position = Vector2.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             isStepMoving = true;
             yield return null;
         }
+        isMoving = false;
     }
+
+    
 }
