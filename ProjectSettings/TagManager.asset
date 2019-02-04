@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - NoTrigger
   layers:
   - Default
   - TransparentFX
@@ -41,9 +42,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 1791466687
+    locked: 0
   - name: Tile
     uniqueID: 3171030843
     locked: 0
-  - name: Player
+  - name: Particle
     uniqueID: 4266929099
+    locked: 0
+  - name: Character
+    uniqueID: 179112469
+    locked: 0
+  - name: HUD
+    uniqueID: 1035288969
     locked: 0

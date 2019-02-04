@@ -21,8 +21,6 @@ public struct Direction {
 
 public class PathFinder : MonoBehaviour
 {
-    private Grid grid;
-    private Tilemap tileMap;
 
     private Point startPoint;
     private Point endPoint;
@@ -31,7 +29,8 @@ public class PathFinder : MonoBehaviour
     private List<AStarTile> _closeList;
     private List<AStarTile> _path;
 
-    private Direction[] _directions = { new Direction(1, 0, 1f), new Direction(-1, 0, 1f), new Direction(0, 1, 1f), new Direction(0, -1, 1f) };
+    private Direction[] _OddDirections = { new Direction(0, 1, 1f), new Direction(1, 1, 1f), new Direction(0, -1, 1f), new Direction(1, -1, 1f) };
+    private Direction[] _EvenDirections = { new Direction(0, 1, 1f), new Direction(-1, 1, 1f), new Direction(0, -1, 1f), new Direction(-1, -1, 1f) };
 
     void Awake() {
         _openList = new List<AStarTile>();
@@ -40,9 +39,7 @@ public class PathFinder : MonoBehaviour
     }
 
     private void SetTile() {
-        Debug.Log(startPoint.x + ", " + startPoint.y);
-        Debug.Log(GameManager.instance.mapData);
-        AStarTile init = GameManager.instance.mapData[startPoint.x + (GameManager.TILE_WIDTH / 2), startPoint.y + (GameManager.TILE_WIDTH / 2)];
+        AStarTile init = GameManager.instance.loGrid.aStarData[startPoint.y, startPoint.x];
         init.g = 0;
         init.h = Mathf.Abs(endPoint.x - startPoint.x) + Mathf.Abs(endPoint.y - startPoint.y);
         init.f = init.g + init.h;
@@ -55,11 +52,6 @@ public class PathFinder : MonoBehaviour
                     tile = _openList[i];
             }
 
-            //if (tile == endPoint) {
-            //    break;
-            //}
-            Debug.Log("SetTile : " + tile.index.x + ", " + tile.index.y);
-
             _openList.Remove(tile);
             _closeList.Add(tile);
             AddNearTile(tile);
@@ -67,13 +59,21 @@ public class PathFinder : MonoBehaviour
     }
 
     private void AddNearTile(AStarTile centerTile) {
+        Direction[] _directions;
+
+        if(centerTile.index.y % 2 == 0) {
+            _directions = _EvenDirections;
+        } else {
+            _directions = _OddDirections;
+        }
+
         for(int i = 0; i < _directions.Length; i++) {
             Point point = new Point(centerTile.index.x + _directions[i].point.x, centerTile.index.y + _directions[i].point.y);
 
-            if (point.x < -(GameManager.TILE_WIDTH / 2) || point.x >= (GameManager.TILE_WIDTH / 2) - 1 || point.y < -(GameManager.TILE_WIDTH / 2) || point.y >= (GameManager.TILE_WIDTH / 2) - 1 || GameManager.instance.mapData[point.x + 5, point.y + 5].type.Equals(TILE_TYPE.WALL))
+            if (point.x < 0 || point.x >= LOGrid.levelWidth || point.y < 0 || point.y >= LOGrid.levelHeight || GameManager.instance.loGrid.aStarData[point.y, point.x] == null)
                 continue;
 
-            AStarTile tile = GameManager.instance.mapData[point.x + (GameManager.TILE_WIDTH / 2), point.y + (GameManager.TILE_WIDTH / 2)];
+            AStarTile tile = GameManager.instance.loGrid.aStarData[point.y, point.x];
 
             if (_closeList.Contains(tile))
                 continue;
@@ -93,13 +93,11 @@ public class PathFinder : MonoBehaviour
     }
 
     private void FindResultPath() {
-        AStarTile tile = GameManager.instance.mapData[endPoint.x + (GameManager.TILE_WIDTH / 2), endPoint.y + (GameManager.TILE_WIDTH / 2)];
+        AStarTile tile = GameManager.instance.loGrid.aStarData[endPoint.y, endPoint.x];
         while(tile != null) {
             _path.Add(tile);
 
-            Debug.Log(tile.index.x + ", " + tile.index.y);
-
-            if (tile.nextTile.Equals(GameManager.instance.mapData[startPoint.x + (GameManager.TILE_WIDTH / 2), startPoint.y + (GameManager.TILE_WIDTH / 2)]))
+            if (tile.nextTile.Equals(GameManager.instance.loGrid.aStarData[startPoint.y, startPoint.x]))
                 break;
 
             tile = tile.nextTile;
@@ -107,9 +105,7 @@ public class PathFinder : MonoBehaviour
         _path.Reverse();
     }
 
-    public List<AStarTile> FindPath(Grid _grid, Tilemap _tileMap, Point startTile, Point endTile) {
-        grid = _grid;
-        tileMap = _tileMap;
+    public List<AStarTile> FindPath(Point startTile, Point endTile) {
         startPoint = startTile;
         endPoint = endTile;
 

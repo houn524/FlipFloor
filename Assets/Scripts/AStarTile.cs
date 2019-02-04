@@ -8,6 +8,8 @@ public enum TILE_TYPE {
     WALL
 }
 
+
+[System.Serializable]
 public struct Point {
     public int x;
     public int y;
@@ -20,7 +22,7 @@ public struct Point {
 
 public class AStarTile
 {
-    public TILE_TYPE type;
+    public LOTileType type;
 
     public Point index;
 

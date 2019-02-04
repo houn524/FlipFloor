@@ -266,7 +266,7 @@ Tilemap:
   - first: {x: 2, y: -1, z: 0}
     second:
       m_TileIndex: 1
-      m_TileSpriteIndex: 0
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 2
       m_TileColorIndex: 1
       m_ObjectToInstantiate: {fileID: 0}
@@ -316,13 +316,17 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 0411c594d3627594e8e687e163c18f89, type: 2}
   - m_RefCount: 10
     m_Data: {fileID: 11400000, guid: 3d222e409b81673418e18c5880ef45ce, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
-  - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: b121dc43358bd07428d9d72fb1cb4511, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 10
     m_Data: {fileID: 21300000, guid: 7c411baa1396f054b8f9d432a4e102cf, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 21300000, guid: bffdbad1fd4813246bb706d8f0ce4017, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: b121dc43358bd07428d9d72fb1cb4511, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
@@ -433,116 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorTile: {fileID: 11400000, guid: af81c6439170e8246850205baa0be587, type: 2}
---- !u!1 &324512923
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 324512926}
-  - component: {fileID: 324512925}
-  - component: {fileID: 324512924}
-  - component: {fileID: 324512927}
-  m_Layer: 0
-  m_Name: Man_Move_0
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &324512924
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324512923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47d8aeb03c5e86048bf6aabc6065215c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grid: {fileID: 1056690130}
-  tileMap: {fileID: 314728810}
-  pathFinder: {fileID: 324512927}
-  moveSpeed: 1
-  currentCoord: {x: 0, y: 0, z: 0}
---- !u!212 &324512925
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324512923}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 0
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -28038197
-  m_SortingLayer: 2
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1833a54ea2a4cad41be3c986fd58d46e, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 2.55, y: 2.56}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &324512926
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324512923}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.95, y: -0.93, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &324512927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324512923}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad1b1c17fb4dfaa43b86ea625c2f522d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  lightOnAnimTile: {fileID: 11400000, guid: a4d7e7fa358f25947bdecd443db52f81, type: 2}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -701,6 +596,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   totalNormalTileCount: 0
   flippedNormalTileCount: 0
+  characterSpawnPoint:
+    x: -3
+    y: -1
+  character: {fileID: 1874468697980041576, guid: ad1391b212d8f7c4ca4a5dc12dc52bdb,
+    type: 3}
   isDoorOpen: 0
   resolutionManager: {fileID: 0}
 --- !u!4 &1802297446
@@ -715,7 +615,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1802297447
 MonoBehaviour:
