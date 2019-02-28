@@ -66,13 +66,15 @@ public class GameManager : MonoBehaviour
         if (PlayerManager.Instance.currentPlayer.isFirst) {
             uiManager.ShowHowToPlay();
             PlayerManager.Instance.currentPlayer.isFirst = false;
-            IOManager.PlayerBinarySerialize(PlayerManager.Instance.currentPlayer, Application.dataPath + "/savedData/player.player");
+            IOManager.PlayerBinarySerialize(PlayerManager.Instance.currentPlayer, Application.persistentDataPath + "/savedData/player.player");
         }
 
         InitStage();
     }
 
     public void InitStage() {
+
+        uiManager.fxSoundManager._isMute = true;
 
         totalNormalTileCount = 0;
         flippedNormalTileCount = 0;
@@ -82,7 +84,7 @@ public class GameManager : MonoBehaviour
 
         character.GetComponent<Character>().Reset();
 
-        Level level = IOManager.LevelBinaryDeserialize(Application.dataPath + "/savedData/savedlevel.level");
+        Level level = IOManager.LevelSavedBinaryDeserialize(Application.persistentDataPath + "/savedData/savedlevel.level");
 
         if(PlayerManager.Instance.currentPlayer.isFirst == false && isFirstLoad && level != null) {
             totalLife = level.life;
@@ -90,7 +92,7 @@ public class GameManager : MonoBehaviour
             currentLevel = level.number;
             isFirstLoad = false;
         } else {
-            level = IOManager.LevelBinaryDeserialize(Application.dataPath + "/levels/level" + currentLevel + ".level");
+            level = IOManager.LevelResourceBinaryDeserialize("levels/level" + currentLevel);
             level.currentLife = level.life;
             totalLife = level.life;
             currentLife = totalLife;
@@ -106,7 +108,7 @@ public class GameManager : MonoBehaviour
 
         loGrid.GenerateTiles();
 
-        
+        uiManager.fxSoundManager._isMute = false;
     }
 
     public void DecreaseLife() {
@@ -163,10 +165,12 @@ public class GameManager : MonoBehaviour
 
     public void NextLevel() {
         //SceneManager.LoadScene("Level2");
-        if(currentLevel < 3) {
+
+        if(currentLevel < 20) {
             currentLevel++;
             savedLevel.number++;
-        }
+        } else
+            isGameOver = true;
 
         uiManager.Clear();
 
@@ -183,10 +187,12 @@ public class GameManager : MonoBehaviour
 
         
         if (isGameOver) {
-            IOManager.DeleteSavedLevel(Application.dataPath + "/savedData/savedlevel.level");
+            IOManager.DeleteSavedFile(Application.persistentDataPath + "/savedData/savedlevel.level");
+            IOManager.DeleteSavedFile(Application.persistentDataPath + "/savedData/player.player");
+            PlayerManager.Instance.createPlayer();
         }
         else
-            IOManager.LevelBinarySerialize(savedLevel, Application.dataPath + "/savedData/savedlevel.level");
+            IOManager.LevelBinarySerialize(savedLevel, Application.persistentDataPath + "/savedData/savedlevel.level");
         
         Debug.Log("Quit!!!");
     }

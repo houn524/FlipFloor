@@ -53,6 +53,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Android Native Audio\Examples\ANA Music\ANAMusicExample.cs" />
+     <Compile Include="Assets\Android Native Audio\Examples\ANA\ANAExample.cs" />
+     <Compile Include="Assets\Android Native Audio\Scripts\ANAMusic.cs" />
+     <Compile Include="Assets\Android Native Audio\Scripts\ANAMusicBackgroundPause.cs" />
+     <Compile Include="Assets\Android Native Audio\Scripts\AndroidMediaPlayer.cs" />
+     <Compile Include="Assets\Android Native Audio\Scripts\AndroidNativeAudio.cs" />
+     <Compile Include="Assets\Android Native Audio\Scripts\OnCompletionListener.cs" />
+     <Compile Include="Assets\Android Native Audio\Scripts\OnLoadCompleteListener.cs" />
+     <Compile Include="Assets\Android Native Audio\Scripts\OnPreparedListener.cs" />
      <Compile Include="Assets\Anonym\MapEditor\Scene\Tutorials\7.1 CharacterControllers\CCTutorialMGR.cs" />
      <Compile Include="Assets\Anonym\MapEditor\script\AttachmentHierarchy.cs" />
      <Compile Include="Assets\Anonym\MapEditor\script\AutoNaming.cs" />
@@ -99,6 +108,7 @@
      <Compile Include="Assets\Anonym\Util\script\SSHelper.cs" />
      <Compile Include="Assets\Anonym\Util\script\TouchManager.cs" />
      <Compile Include="Assets\Anonym\Util\script\TouchUtility.cs" />
+     <Compile Include="Assets\FXSoundManager.cs" />
      <Compile Include="Assets\PixelPerfectCamera\Scripts\CanvasScreenSpaceScaler.cs" />
      <Compile Include="Assets\PixelPerfectCamera\Scripts\CanvasWorldScaler.cs" />
      <Compile Include="Assets\PixelPerfectCamera\Scripts\Internal\VectorSwizzleExtensions.cs" />
@@ -133,7 +143,9 @@
      <Compile Include="Assets\UIManager.cs" />
      <None Include="Assets\Anonym\MapEditor\Read Me.txt" />
      <None Include="Assets\PixelPerfectCamera\background_art_license.txt" />
+     <None Include="Assets\Android Native Audio\Credits.txt" />
      <None Include="Assets\light on\etc\LOFont.fnt" />
+     <None Include="Assets\Android Native Audio\Changelog.txt" />
      <None Include="Assets\2D_Pixel_Art_Isometric_Blocks_Devils_Garage_v04\readme.txt" />
      <None Include="Assets\PixelPerfectCamera\README.txt" />
  <Reference Include="Unity.TextMeshPro.Editor">

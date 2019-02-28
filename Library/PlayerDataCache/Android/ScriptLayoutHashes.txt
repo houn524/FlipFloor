@@ -91,10 +91,11 @@ fc108ce7d98c40ac0907e8ca7f500c76 UnityEngine.UI.dll:UnityEngine.UI.Text
 0fd6822f6177297bd0eb4d83cc7a9030 UnityEngine.UI.dll:UnityEngine.UI.ToggleGroup
 abf1930d8126d0b2e00e9449129a0190 UnityEngine.UI.dll:UnityEngine.EventSystems.TouchInputModule
 64e54c0cbb0177c5ea26f340efb9ff85 UnityEngine.UI.dll:UnityEngine.UI.VerticalLayoutGroup
-c2aaf7c6f1790d6bb7cd5ec2b37280ff Assembly-CSharp.dll:.UIManager
+806c62bc3ade5f4abe7ec1c6f8ad999f Assembly-CSharp.dll:.UIManager
 fea57f61d8806118298cf4972e7b0d52 Assembly-CSharp.dll:Anonym.Isometric.SpriteMaskAssist
 11d8662582cd9de902542a306dfa4ec8 Assembly-CSharp.dll:Anonym.Isometric.IsoTile
 8f6d77d61cfca6a5af79fd141db972d4 Assembly-CSharp.dll:Anonym.Isometric.ISOBasis
+46cdf1824f8f426b79a9684f49e3ede1 Assembly-CSharp.dll:.PlayerManager
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationPlayableAsset
 06f0fef534ca4c1d6064fd77a26bf722 UnityEngine.Timeline.dll:UnityEngine.Timeline.ActivationTrack
 8747051d8c53856e2def93af4f2a8b08 UnityEngine.Timeline.dll:UnityEngine.Timeline.AnimationPlayableAsset
@@ -130,6 +131,7 @@ d251bf88db6c95a6b1aa0b69298da9ef UnityEngine.SpatialTracking.dll:UnityEngine.Spa
 303ad70ce203ad874efe2965d0fbcff9 Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsEventTracker
 7fb9de8dcf73854b6b328eca1f7a6e6d Unity.Analytics.Tracker.dll:UnityEngine.Analytics.AnalyticsTracker
 94017dcc9f00fe671ea7dc427b4da011 Unity.TextMeshPro.dll:TMPro.TMP_SpriteAsset
+9ed9f14b134283faf8f64a03e95fb72e Assembly-CSharp.dll:.ANAExample
 0e55f9f0ef88319aee8d7059b4c4ced7 Assembly-CSharp.dll:.CCTutorialMGR
 831f26041e21027f158da1b10941cc72 Assembly-CSharp.dll:Anonym.Isometric.AutoNaming
 a3d7f8049f6e9c643f1ed00c19dee1af Assembly-CSharp.dll:Anonym.Isometric.IsometricCharacterController
@@ -143,10 +145,12 @@ be2d1663d6bc8ce39ce9c8dea6a963c7 Assembly-CSharp.dll:.Scroller
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.MainMenuManager
 71bb6a6b6c8f052f948db64c7dd3ca4f Unity.TextMeshPro.dll:TMPro.TMP_SpriteAnimator
 bcf5d7f51c39f592746c06842a9aa4f1 Assembly-CSharp.dll:Anonym.Isometric.IsoLight
+f66f4613897f42d186277510a789df3c Assembly-CSharp.dll:.FXSoundManager
 4fd8bf02e3089425d3502e26c44ba31a Unity.TextMeshPro.dll:TMPro.TextContainer
 eb923ea4344a839f3b2200704d511f17 Assembly-CSharp.dll:.LOTile
+71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:ChristopherCreates.AndroidNativeAudio.ANAMusicBackgroundPause
 6058c12a64ee6d5c09889a815efd2603 Assembly-CSharp.dll:Anonym.Isometric.RegularCollider
-418c0b0d30e3a6ca0588e8dcf9de7a4a Assembly-CSharp.dll:.GameManager
+d755be45d9f7e6f8ddbe6391cf5efbf7 Assembly-CSharp.dll:.GameManager
 6c99b8e68a955a1174e12d4ce0a00fec Assembly-CSharp.dll:.LOGrid
 e6ae40841db498b6e673877ac45ad208 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 71bb6a6b6c8f052f948db64c7dd3ca4f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
@@ -198,6 +202,7 @@ b83343678e2fad42a46b7fc7a1cf7102 Assembly-CSharp.dll:.PixelPerfectCamera
 c6666661329916e218bee7f5e79e60f5 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 3165968ba45c74472d279ba04455fccb Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 f0b114a452ee7b42bea6113d0fa3a3dc Assembly-CSharp.dll:Anonym.Isometric.GridCoordinates
+9ed9f14b134283faf8f64a03e95fb72e Assembly-CSharp.dll:.ANAMusicExample
 8f06a20d55b22238e5a7cc8ed6511a05 Assembly-CSharp.dll:Anonym.Util.GameObjectSelector
 71bb6a6b6c8f052f948db64c7dd3ca4f Assembly-CSharp.dll:.StartPanel
 8649814970b42d345b89944b862453cc Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
@@ -205,4 +210,3 @@ f0b114a452ee7b42bea6113d0fa3a3dc Assembly-CSharp.dll:Anonym.Isometric.GridCoordi
 0f8cdaf30f71a368cb7f826e40f6aba7 Assembly-CSharp.dll:Anonym.Isometric.TallCharacterHelper
 a7510804375ea117c6e2ea4b103364e9 Assembly-CSharp.dll:Anonym.Util.SSHelper
 ed6104940a6480ab31f705e34346a7fd Assembly-CSharp.dll:Anonym.Isometric.IsometircSortingOrder
-46cdf1824f8f426b79a9684f49e3ede1 Assembly-CSharp.dll:.PlayerManager

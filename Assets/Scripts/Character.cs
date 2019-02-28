@@ -169,6 +169,8 @@ public class Character : MonoBehaviour
                 break;
             } else if(GameManager.instance.isDoorOpen == true && currentTargetTile.index.Equals(GameManager.instance.loGrid.doorTile.index)) {
                 GameManager.instance.loGrid.endTile.transform.Find("Mask").gameObject.SetActive(true);
+                if(GameManager.instance.uiManager.fxSoundManager.GetComponent<AudioSource>().isPlaying == false)
+                    GameManager.instance.uiManager.fxSoundManager.playEnterDoor();
             }
 
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
